@@ -1,0 +1,2 @@
+- build docker file
+    docker build -t lmgomes91/nginx-vim:latest .
