@@ -1,2 +1,5 @@
 - build docker file
-    docker build -t lmgomes91/nginx-vim:latest .
+    docker build -t name_image .
+- run image
+    docker rum name_image
+    docker run -it name_image
