@@ -1,0 +1,18 @@
+# kubectl apply -f k8s/pod.yaml
+# pull the image before
+apiVersion: v1
+kind: Pod
+metadata:
+  name: goserver
+  labels:
+    app: goserver
+spec:
+  containers:
+    - name: goserver
+      image: lmgomes91/hello-go:latest
+      # resources:
+      #   limits:
+      #     memory: "128Mi"
+      #     cpu: "500m"
+      # ports:
+      #   - containerPort: 8080
