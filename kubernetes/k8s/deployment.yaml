@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: goserver
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -16,4 +16,19 @@ spec:
     spec:
       containers:
         - name: goserver
-          image: lmgomes91/hello-go:latest
+          image: lmgomes91/hello-go:v4
+          envFrom:
+            - configMapRef:
+                name: goserver-env
+
+          # env:
+          #   - name: NAME
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: goserver-env
+          #         key: NAME
+          #   - name: AGE
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: goserver-env
+          #         key: AGE

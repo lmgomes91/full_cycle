@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp
+spec:
+  selector:
+    app: goserver
+  type: ClusterIP
+  ports:
+    - name: goserver-service
+      port: 80 # porta do service
+      targetPort: 80 # porta do pod
+      protocol: TCP
+# kubectl port-forward svc/myapp 8000:80
