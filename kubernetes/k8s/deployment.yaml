@@ -16,7 +16,19 @@ spec:
     spec:
       containers:
         - name: goserver
-          image: lmgomes91/hello-go:v5.2
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 80
+            periodSeconds: 5
+            failureThreshold: 1
+            timeoutSeconds: 1
+            successThreshold: 1
+          image: lmgomes91/hello-go:v5.3
           envFrom:
             - configMapRef:
                 name: goserver-env
