@@ -8,6 +8,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", Hello)
+	http.HandleFunc("/secret", Secret)
 	http.ListenAndServe(":80", nil)
 }
 
@@ -16,4 +17,11 @@ func Hello(w http.ResponseWriter, r *http.Request) {
 	age := os.Getenv("AGE")
 
 	fmt.Fprintf(w, "Hello I'm %s. I'm %s.", name, age)
+}
+
+func Secret(w http.ResponseWriter, r *http.Request) {
+	user := os.Getenv("USER")
+	password := os.Getenv("PASSWORD")
+
+	fmt.Fprintf(w, "USer: %s. Password %s.", user, password)
 }
